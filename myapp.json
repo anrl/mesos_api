@@ -1,0 +1,7 @@
+{
+  "id": "myapp",
+  "cmd": "python -m SimpleHTTPServer $PORT",
+  "cpus": 0.1,
+  "mem": 32.0,
+  "instances": 1
+}
