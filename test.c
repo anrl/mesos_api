@@ -1,4 +1,4 @@
-#include "libmarathon.h"
+#include "marathon.h"
 
 #include <sys/wait.h>
 #include <stdio.h>

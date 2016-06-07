@@ -1,16 +1,16 @@
 CC = gcc
 CFLAGS = -Wall -g -ggdb
 
-all: libmarathon.o test.o test
+all: marathon.o test.o test
 
-test: test.o libmarathon.o
-	$(CC) $(CFLAGS) -o test test.o libmarathon.o -lcurl
+test: test.o marathon.o
+	$(CC) $(CFLAGS) -o test test.o marathon.o -lcurl
 
-test.o: test.c libmarathon.h
+test.o: test.c marathon.h
 	$(CC) $(CFLAGS) test.c -c
 
-libmarathon.o: libmarathon.c libmarathon.h
-	$(CC) $(CFLAGS) libmarathon.c -c
+marathon.o: marathon.c marathon.h
+	$(CC) $(CFLAGS) marathon.c -c
 
 clean:
 	rm *.o test

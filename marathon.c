@@ -1,4 +1,4 @@
-#include "libmarathon.h"
+#include "marathon.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -365,7 +365,7 @@ int attach_event_stream(Response *resp)
 /*   Event Subscriptions  */
 /**************************/
 
-// To use these functions start Marathon with --event_subscriber http_callback
+//NB To use these functions start Marathon with --event_subscriber http_callback
 
 int register_callback_url(char *params, Response *resp)
 {
