@@ -26,5 +26,7 @@ rs.on('end', function() {
   //marathon.changeGroupConfig('/1', '{\"id\":\"2\"}');
   //marathon.destroyGroup('/1/2');
   //marathon.listAllTasks();
-  marathon.killTasks('{\"ids\":[\"myapp.38615a41-3f4b-11e6-a681-08002760a44c\"]}');
+  //marathon.killTasks('{\"ids\":[\"myapp.38615a41-3f4b-11e6-a681-08002760a44c\"]}');
+  //marathon.listAllDeployments();
+  marathon.cancelDeployment('30e7bc33-aee4-48b9-a2a2-2e7900b8bfa8');
 });

@@ -154,4 +154,19 @@ module.exports = class Marathon {
     req.write(tasks);
     req.end();
   }
+
+  /**************************/
+  /*      Deployments       */
+  /**************************/
+
+  listAllDeployments() {
+    this._options.path = '/v2/deployments';
+    http.request(this._options, this._callback).end();
+  }
+
+  cancelDeployment(deployid, params='') {
+    this._options.path = '/v2/deployments/' + deployid + params;
+    this._options.method = 'DELETE';
+    http.request(this._options, this._callback).end();
+  }
 }
