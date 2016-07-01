@@ -138,4 +138,20 @@ module.exports = class Marathon {
     http.request(this._options, this._callback).end();
   }
 
+  /**************************/
+  /*         Tasks          */
+  /**************************/
+
+  listAllTasks(params='') {
+    this._options.path = '/v2/tasks' + params;
+    http.request(this._options, this._callback).end();
+  }
+
+  killTasks(tasks, params='') {
+    this._options.path = '/v2/tasks/delete' + params;
+    this._options.method = 'POST';
+    var req = http.request(this._options, this._callback);
+    req.write(tasks);
+    req.end();
+  }
 }

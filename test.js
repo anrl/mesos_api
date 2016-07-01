@@ -25,5 +25,6 @@ rs.on('end', function() {
   //marathon.createGroup('{\"id\":\"/1\"}');
   //marathon.changeGroupConfig('/1', '{\"id\":\"2\"}');
   //marathon.destroyGroup('/1/2');
-
+  //marathon.listAllTasks();
+  marathon.killTasks('{\"ids\":[\"myapp.38615a41-3f4b-11e6-a681-08002760a44c\"]}');
 });
