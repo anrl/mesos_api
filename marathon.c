@@ -440,7 +440,7 @@ int leader_abdicate(Response *resp)
 }
 
 /**************************/
-/*      Micellaneous      */
+/*      Miscellaneous     */
 /**************************/
 
 int ping(Response *resp)

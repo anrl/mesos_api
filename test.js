@@ -35,5 +35,9 @@ rs.on('end', function() {
   // marathon.unregisterCallbackURL();
   // marathon.showQueueContent();
   // marathon.resetLaunchDelay('myapp');
-
+  // marathon.serverInfo();
+  // marathon.currentLeader();
+  // marathon.leaderAbdicate();
+  // marathon.ping();
+  // marathon.metrics();
 });

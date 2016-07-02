@@ -233,4 +233,42 @@ module.exports = class Marathon {
     this._options.method = 'DELETE';
     http.request(this._options, this._callback).end();
   }
+
+  /**************************/
+  /*      Server Info       */
+  /**************************/
+
+  serverInfo() {
+    this._options.path = '/v2/info';
+    this._options.method = 'GET';
+    http.request(this._options, this._callback).end();
+  }
+
+  currentLeader() {
+    this._options.path = '/v2/leader';
+    this._options.method = 'GET';
+    http.request(this._options, this._callback).end();
+  }
+
+  leaderAbdicate() {
+    this._options.path = '/v2/leader';
+    this._options.method = 'DELETE';
+    http.request(this._options, this._callback).end();
+  }
+
+  /**************************/
+  /*      Miscellaneous     */
+  /**************************/
+
+  ping() {
+    this._options.path = '/ping';
+    this._options.method = 'GET';
+    http.request(this._options, this._callback).end();
+  }
+
+  metrics() {
+    this._options.path = '/metrics';
+    this._options.method = 'GET';
+    http.request(this._options, this._callback).end();
+  }
 }
