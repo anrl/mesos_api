@@ -47,21 +47,25 @@ module.exports = class Marathon {
 
   listAllApps(params='') {
     this._options.path = '/v2/apps' + params;
+    this._options.method = 'GET';
     http.request(this._options, this._callback).end();
   }
 
   listApp(appid, params='') {
     this._options.path = '/v2/apps/' + appid + params;
+    this._options.method = 'GET';
     http.request(this._options, this._callback).end();
   }
 
   listAppVersions(appid) {
     this._options.path = '/v2/apps/' + appid + '/versions';
+    this._options.method = 'GET';
     http.request(this._options, this._callback).end();
   }
 
   listAppConfig(appid, version) {
     this._options.path = '/v2/apps/' + appid + '/versions/' + version;
+    this._options.method = 'GET';
     http.request(this._options, this._callback).end();
   }
 
@@ -87,6 +91,7 @@ module.exports = class Marathon {
 
   listAppTasks(appid) {
     this._options.path = '/v2/apps/' + appid + '/tasks';
+    this._options.method = 'GET';
     http.request(this._options, this._callback).end();
   }
 
@@ -108,11 +113,13 @@ module.exports = class Marathon {
 
   listAllGroups() {
     this._options.path = '/v2/groups';
+    this._options.method = 'GET';
     http.request(this._options, this._callback).end();
   }
 
   listGroup(groupid) {
     this._options.path = '/v2/groups/' + groupid;
+    this._options.method = 'GET';
     http.request(this._options, this._callback).end();
   }
 
@@ -144,6 +151,7 @@ module.exports = class Marathon {
 
   listAllTasks(params='') {
     this._options.path = '/v2/tasks' + params;
+    this._options.method = 'GET';
     http.request(this._options, this._callback).end();
   }
 
@@ -161,11 +169,51 @@ module.exports = class Marathon {
 
   listAllDeployments() {
     this._options.path = '/v2/deployments';
+    this._options.method = 'GET';
     http.request(this._options, this._callback).end();
   }
 
   cancelDeployment(deployid, params='') {
     this._options.path = '/v2/deployments/' + deployid + params;
+    this._options.method = 'DELETE';
+    http.request(this._options, this._callback).end();
+  }
+
+  /**************************/
+  /*      Event Stream      */
+  /**************************/
+
+  attachEventStream() {
+    var options = {
+      host: this._options.host,
+      port: this._options.port,
+      path: '/v2/events',
+      headers: {'Accept': 'text/event-stream'}
+    }
+    http.request(options, this._callback).end();
+  }
+
+  /**************************/
+  /*   Event Subscriptions  */
+  /**************************/
+
+  // NB To use these functions start Marathon
+  // with --event_subscriber http_callback
+
+  registerCallbackURL(params='') {
+    this._options.path = '/v2/eventSubscriptions' + params;
+    this._options.method = 'POST';
+    http.request(this._options, this._callback).end();
+  }
+
+  listCallbackURLs() {
+    this._options.path = '/v2/eventSubscriptions';
+    this._options.method = 'GET';
+    http.request(this._options, this._callback).end();
+  }
+
+  unregisterCallbackURL(params='') {
+    this._options.path = '/v2/eventSubscriptions' + params;
     this._options.method = 'DELETE';
     http.request(this._options, this._callback).end();
   }
