@@ -217,4 +217,20 @@ module.exports = class Marathon {
     this._options.method = 'DELETE';
     http.request(this._options, this._callback).end();
   }
+
+  /**************************/
+  /*         Queue          */
+  /**************************/
+
+  showQueueContent() {
+    this._options.path = '/v2/queue';
+    this._options.method = 'GET';
+    http.request(this._options, this._callback).end();
+  }
+
+  resetLaunchDelay(appid) {
+    this._options.path = '/v2/queue/' + appid + '/delay';
+    this._options.method = 'DELETE';
+    http.request(this._options, this._callback).end();
+  }
 }

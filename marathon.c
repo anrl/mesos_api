@@ -406,7 +406,7 @@ int show_queue_content(Response *resp)
 int reset_launch_delay(char* aid, Response *resp)
 {
   char uri[MAX_URI_LEN];
-  sprintf(uri, "%s:%s/v2/queue%s/delay", aid, ipaddr, port);
+  sprintf(uri, "%s:%s/v2/queue/%s/delay", aid, ipaddr, port);
   send_http_delete(uri, resp);
   return 0;
 }
