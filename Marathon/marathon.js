@@ -9,7 +9,7 @@ module.exports = class Marathon {
   /**************************/
 
   constructor(ip, port=8080) {
-    this._options = {}
+    this._options = {};
     this._options.host = ip;
     this._options.port = port;
   }
@@ -19,14 +19,14 @@ module.exports = class Marathon {
   /**************************/
 
   _callback(response) {
-    var msg = ''
+    var str = '';
 
     response.on('data', function (chunk) {
-      msg += chunk;
+      str += chunk;
     });
 
     response.on('end', function() {
-      console.log(msg);
+      console.log(str);
     });
   }
 

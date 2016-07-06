@@ -26,19 +26,15 @@ int main(int argc, char **argv)
   // list_app_tasks("myapp", &resp);
   // kill_app_tasks("myapp", "", &resp);
   // kill_task("myapp", "myapp.94e700cf-f2fe-11e5-a0a5-0800272e2a42", "?scale=true", &resp);
-
   //list_all_groups(&resp);
   //list_group("/", &resp);
   //create_group("{\"id\":\"002\"}", &resp);
   //change_group_config("002", "{\"id\":\"003\"}", &resp);
   //destroy_group("002", &resp);
-
   //list_all_tasks(&resp);
   //kill_tasks("{\"ids\":[\"myapp.94e6d9be-f2fe-11e5-a0a5-0800272e2a42\"]}", "?scale=true",&resp);
-
   //list_all_deployments(&resp);
   //cancel_deployment("64e66b2d-31c6-40c0-9680-661b3d070fbe", "", &resp);
-
   //attach_event_stream(&resp);
 
   printf("%s\n", resp.message);
